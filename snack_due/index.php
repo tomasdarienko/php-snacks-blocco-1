@@ -17,7 +17,7 @@ Con un form passare come parametri GET name, mail e age e verificare (cercando i
 
           
           $nan = is_nan(acos($_GET["date"]));
-          if ($nan === 1) {
+          if ($nan == 1) {
                $data_succ = "";
           } else {
                $data_succ = "la data deve essere una cifra";
@@ -29,7 +29,7 @@ Con un form passare come parametri GET name, mail e age e verificare (cercando i
                $email_succ = 'l email deve contenere una @';
            };
 
-           if(str_contains(($_GET["email"]), '@') && $nan === 1 && $nameLen > 3){
+           if(str_contains(($_GET["email"]), '@') && $nan == 1 && $nameLen > 3){
                $accesso = "Accesso riuscito";
            }
            else{
@@ -57,6 +57,7 @@ Con un form passare come parametri GET name, mail e age e verificare (cercando i
                <button type="submit">invia</button>
           </form>
 
+          <?php if (isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["date"])) { ?>
           <div>
                <?php echo $name_succ ?>
           </div>
@@ -69,6 +70,7 @@ Con un form passare come parametri GET name, mail e age e verificare (cercando i
           <h2>
                <?php echo $accesso ?>
           </h2>
+          <?php } ?>
      </div>
 </body>
 
