@@ -25,16 +25,20 @@ Con un form passare come parametri GET name, mail e age e verificare (cercando i
 
           if (str_contains(($_GET["email"]), '@')) {
                $email_succ = '';
-           }
-           elseif (str_contains(($_GET['email']), '.')) {
-               $email_succ = '';
-           }
-            else {
-               $email_succ = 'l email deve contenere una @';
-           };
-           
 
-           if(str_contains(($_GET["email"]), '@') && $nan == 1 && $nameLen > 3){
+               if (str_contains(($_GET['email']), '.')) {
+                    $email_succ = '';
+               }
+               else{
+                    $email_succ = 'l email deve contenere un .';
+               }
+          }
+            else {
+               $email_succ = 'l email deve contenere una @ ';
+           };
+
+
+           if(str_contains(($_GET["email"]), '@') && (str_contains(($_GET['email']), '.')) && $nan == 1 && $nameLen > 3){
                $accesso = "Accesso riuscito";
            }
            else{
